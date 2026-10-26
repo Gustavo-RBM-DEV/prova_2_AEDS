@@ -1,0 +1,273 @@
+/*
+ * ============================================================================
+ * ASSINATURAS DO CODIGO CENTRAL
+ * ============================================================================
+ *
+ * src/aed/app/AppPedidos.java
+ *   public static void finalizarPedido(PedidoDemo pedido)
+ *   public static void mostrarMediaPedidos(int quantidade)
+ *   public static void mostrarPedidosFiltrados(int quantidade, double minimo)
+ *   public static void demonstrar()
+ *   public static void main(String[] args)
+ *
+ * src/aed/app/PedidoDemo.java
+ *   public PedidoDemo(int id, double valor)
+ *   public int getId()
+ *   public double valorFinal()
+ *   @Override public int compareTo(PedidoDemo outro)
+ *   @Override public boolean equals(Object o)
+ *   @Override public int hashCode()
+ *   @Override public String toString()
+ *
+ * src/aed/app/RecursaoPassoAPasso.java
+ *   public static int contar(Celula<Integer> atual, String margem)
+ *   public static void main(String[] args)
+ *
+ * src/aed/base/Celula.java
+ *   public Celula()
+ *   public Celula(E item)
+ *   public Celula(E item, Celula<E> proximo)
+ *   public E getItem()
+ *   public Celula<E> getProximo()
+ *   public void setProximo(Celula<E> proximo)
+ *
+ * src/aed/base/CelulaDupla.java
+ *   public CelulaDupla()
+ *   public CelulaDupla(E item)
+ *   public E getItem()
+ *   public void setItem(E item)
+ *   public CelulaDupla<E> getAnterior()
+ *   public void setAnterior(CelulaDupla<E> anterior)
+ *   public CelulaDupla<E> getProximo()
+ *   public void setProximo(CelulaDupla<E> proximo)
+ *
+ * src/aed/base/Fila.java
+ *   public Fila()
+ *   public Fila(E[] itens)
+ *   public Fila(Pilha<E> pilha)
+ *   public boolean vazia()
+ *   public void enfileirar(E item)
+ *   public E consultarInicio()
+ *   public E desenfileirar()
+ *   public int tamanho()
+ *   public int obterNumeroItens()
+ *   public int obterNumeroItens(Celula<E> aux)
+ *   public boolean verificarExistencia(E item)
+ *   public boolean contem(E item)
+ *   public boolean contem(E item, Celula<E> aux)
+ *   public int quantosAfrente(E item)
+ *   public int quantosAfrente(Celula<E> atual, E item)
+ *   public int obterNumItensAFrente(E item) throws Exception
+ *   public E obterItem(int pos)
+ *   public E obterItem(Celula<E> aux, int pos)
+ *   public Fila<E> copiar()
+ *   public void concatenar(Fila<E> outra)
+ *   public Fila<E> unir(Fila<E> outra)
+ *   public void mesclar(Fila<E> outra)
+ *   public void inverter()
+ *   public void inverterSemAnterior()
+ *   public Fila<E> invertida()
+ *   public Fila<E> inverterOutra(Fila<E> outra)
+ *   public void inverterPorPilha()
+ *   public void inverterRecursivamente()
+ *   public Fila<E> dividir()
+ *   public Fila<E> filtrar(Predicate<E> condicao, int quantidade)
+ *   public double somarValores(Function<E, Double> extrator, int quantidade)
+ *   public double calcularValorMedio(Function<E, Double> extrator, int quantidade)
+ *   public int contarSe(Predicate<E> condicao, int quantidade)
+ *   public E encontrarMaior(Function<E, Double> extrator)
+ *   public Fila<E> itensDepoisDoAlvo(E alvo)
+ *   public Fila<E> itensAntesDoAlvo(E alvo)
+ *   public Object[] toArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/base/Lista.java
+ *   public Lista()
+ *   public boolean vazia()
+ *   public int tamanho()
+ *   public void inserirFinal(E item)
+ *   public void inserir(E item, int pos)
+ *   public E remover(int pos)
+ *   public E removerInicio()
+ *   public E remover(E itemProcurado)
+ *   public E localizar(int pos)
+ *   public int obterNumeroItens()
+ *   public int contarQtos(E item)
+ *   public int contarQtos(E item, Celula<E> aux)
+ *   public boolean contem(E item)
+ *   public boolean contem(E item, Celula<E> aux)
+ *   public boolean removerTodos(E item)
+ *   public void inverter()
+ *   public Lista<E> invertida()
+ *   @Override public Lista<E> clone()
+ *   public void mesclar(Lista<E> outra)
+ *   public Lista<E> mesclarInvertidas(Lista<E> outra)
+ *   public void unir(Pilha<E> pilha)
+ *   public void trocar(E xItem, E yItem)
+ *   public Object[] toArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/base/ListaDupla.java
+ *   public ListaDupla()
+ *   public ListaDupla(Fila<E> fila)
+ *   public boolean vazia()
+ *   public int tamanho()
+ *   public void inserirFim(E item)
+ *   public void inserir(E item, int posicao)
+ *   public E removerFim()
+ *   public E remover(int pos)
+ *   public boolean removerTodos(E item)
+ *   public void inverter()
+ *   public boolean ehPalindromo()
+ *   public void concatenar(ListaDupla<E> outra)
+ *   public Object[] toArray()
+ *   public Object[] reversoArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/base/Pilha.java
+ *   public Pilha()
+ *   public boolean vazia()
+ *   public void empilhar(E item)
+ *   public E consultarTopo()
+ *   public E desempilhar()
+ *   public int obterNumeroItens()
+ *   public int contarRecursivo()
+ *   public Pilha<E> subPilha(int numItens)
+ *   public Pilha<E> copiar()
+ *   public void inverter()
+ *   public void concatenar(Pilha<E> outra)
+ *   public void inverterRecursivamente()
+ *   public Object[] toArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/base/PseudoFila.java
+ *   public boolean vazia()
+ *   public void enfileirar(E item)
+ *   public E desenfileirar()
+ *   public E consultarInicio()
+ *
+ * src/aed/base/PseudoPilha.java
+ *   public boolean vazia()
+ *   public void empilhar(E item)
+ *   public E desempilhar()
+ *   public E consultarTopo()
+ *
+ * src/aed/classicos/Classicos.java
+ *   public static boolean delimitadoresBalanceados(String texto)
+ *   public static double avaliarPosfixa(String expressao)
+ *   public static String binario(int n)
+ *   public static boolean palindromo(String texto)
+ *   public static <E> Celula<E> inverterLigacoes(Celula<E> atual)
+ *   public static <E> Celula<E> inverterLigacoesRec(Celula<E> atual)
+ *   public static <E> boolean temCiclo(Celula<E> inicio)
+ *   public static <E> Celula<E> inicioDoCiclo(Celula<E> inicio)
+ *   public static <E> Celula<E> meio(Celula<E> inicio)
+ *   public static <E> E kEsimoDoFim(Celula<E> inicio, int k)
+ *   public static <E> Celula<E> removerKEsimoDoFim(Celula<E> inicio, int k)
+ *   public static <E extends Comparable<E>> Celula<E> intercalarNos(Celula<E> a, Celula<E> b)
+ *   public static <E> Celula<E> removerDuplicadosOrdenados(Celula<E> inicio)
+ *   public static <E> Celula<E> removerDuplicados(Celula<E> inicio)
+ *   public static <E extends Comparable<E>> Celula<E> particionarEstavel(Celula<E> inicio, E limite)
+ *   public static <E> void inverterPrimeiros(Fila<E> fila, int k)
+ *   public static int josephus(int n, int m)
+ *   public static int[] proximosMaiores(int[] a)
+ *   public static boolean sequenciaDesempilhavel(int[] entrada, int[] saida)
+ *
+ * src/aed/classicos/PilhaMinima.java
+ *   public boolean vazia()
+ *   public void empilhar(E item)
+ *   public E desempilhar()
+ *   public E consultarTopo()
+ *   public E minimo()
+ *
+ * src/aed/flexiveis/ListaOrdenada.java
+ *   public void inserirEmOrdem(E item)
+ *   public Object[] toArray()
+ *
+ * src/aed/ordenacao/Ordenacoes.java
+ *   public static void trocar(int[] a, int i, int j)
+ *   public static void mergeSort(int[] a)
+ *   public static void quickSortCentro(int[] a)
+ *   public static void quickSortUltimo(int[] a)
+ *   public static int particionar(int[] a, int esq, int dir)
+ *   public static void quickSortLomuto(int[] a)
+ *   public static void quickSortTresVias(int[] a)
+ *   public static void heapSort(int[] a)
+ *   public static void heapSortBaseUm(int[] a)
+ *   public static void insertionSort(int[] a)
+ *   public static void selectionSort(int[] a)
+ *   public static void bubbleSort(int[] a)
+ *
+ * src/aed/revisao/Fila.java
+ *   public Fila()
+ *   public Fila(E[] a, E[] b)
+ *   public boolean vazia()
+ *   public void enfileirar(E item)
+ *   public E consultarInicio()
+ *   public E desenfileirar()
+ *   public E obterItem(int pos)
+ *   public E obterItem(Celula<E> aux, int pos)
+ *   public Fila<E> extrairMenores(E limite)
+ *   public Object[] toArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/revisao/Lista.java
+ *   public Lista()
+ *   public Lista(aed.base.Fila<E> a, aed.base.Fila<E> b)
+ *   public boolean vazia()
+ *   public int tamanho()
+ *   public void inserirFinal(E novo)
+ *   public void inserir(E novo, int posicao)
+ *   public E remover(int posicao)
+ *   public Lista<E> intercalarOrdenadas(Lista<E> outra)
+ *   public E obterMaior()
+ *   public E obterMaior(Celula<E> aux)
+ *   public void rotacionar(int k)
+ *   public Lista<E> dividirAoMeio()
+ *   public void trocarDoisPrimeiros()
+ *   public void ordenar()
+ *   public void inserirEmOrdem(E item)
+ *   public Object[] toArray()
+ *   public boolean estruturaValida()
+ *
+ * src/aed/testes/Testes.java
+ *   public static void main(String[] args) throws Exception
+ *
+ * src/aed/variacoes/FilaCircular.java
+ *   public FilaCircular(int capacidade)
+ *   public boolean vazia()
+ *   public boolean cheia()
+ *   public int tamanho()
+ *   public void enfileirar(E item)
+ *   @SuppressWarnings("unchecked") public E desenfileirar()
+ *
+ * src/aed/variacoes/FilaSemSentinela.java
+ *   public boolean vazia()
+ *   public void enfileirar(E e)
+ *   public E desenfileirar()
+ *
+ * src/aed/variacoes/ModelosRecursivos.java
+ *   public static <E> int contarSe(Celula<E> atual, Predicate<E> condicao)
+ *   public static <E> double somar(Celula<E> atual, Function<E, Double> extrator)
+ *   public static <E> boolean algum(Celula<E> atual, Predicate<E> condicao)
+ *   public static <E> boolean todos(Celula<E> atual, Predicate<E> condicao)
+ *   public static <E> int indiceOuMenosUm(Celula<E> atual, E alvo)
+ *   public static <E> int ultimoIndice(Celula<E> atual, E alvo)
+ *   public static <E> Celula<E> copiarNos(Celula<E> atual)
+ *   public static <E> Celula<E> filtrarNos(Celula<E> atual, Predicate<E> condicao)
+ *   public static <E> Celula<E> removerTodosNos(Celula<E> atual, E alvo)
+ *   public static <E> Fila<E> copiarInvertido(Celula<E> atual)
+ *   public static <E> Celula<E> copiarComFuncao(Celula<E> atual, Function<E, E> copiador)
+ *
+ * src/aed/variacoes/PilhaSemSentinela.java
+ *   public boolean vazia()
+ *   public void empilhar(E item)
+ *   public E consultarTopo()
+ *   public E desempilhar()
+ *
+ * src/aed/variacoes/PilhaVetor.java
+ *   public PilhaVetor(int capacidade)
+ *   public boolean vazia()
+ *   public void empilhar(E e)
+ *   @SuppressWarnings("unchecked") public E desempilhar()
+ */
